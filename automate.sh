@@ -50,14 +50,16 @@ const subscribersRouter = require('./routes/subscriber')
 app.use('/subscriber', subscribersRouter)
 
 // Check server in terminal if running
-app.listen(3000, () => console.log('Server Started'))
+app.listen(process.env.PORT, () => console.log('Server Started'))
 EOF
 
 cat << EOF >> .env
 DATABASE_URL=mongodb://localhost/subscribers
+PORT=3000
 EOF
 cat << EOF >> .env.example
-DATABASE_URL=$mongoDBURL
+DATABASE_URL=DATABASE_URL
+PORT=PORT
 EOF
 
 
